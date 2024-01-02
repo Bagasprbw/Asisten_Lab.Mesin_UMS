@@ -1,3 +1,8 @@
+<?php
+    $conn=mysqli_connect('localhost','root','','asisten_lab_tmums');
+    $query = "SELECT * FROM asistent where position_lab = 'Manufaktur'";
+    $data_asistent = mysqli_query($conn,$query);
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -79,9 +84,14 @@
                                 <div class="quotes"><hr>
                                     <bold>Asisten :</bold>
                                     <ul>
-                                        <li>Habib Priyo Utoro (D200200120)</li>
-                                        <li>Zein Rangga Saputra (D200210117)</li>
-                                        <li>Gilang Nataro (D200200258)	</li>
+                                        <?php if (mysqli_num_rows($data_asistent) > 0) { ?>
+                                        <?php } else {
+                                            echo "
+                                            <p class='text-danger'>Belum ada asiten saat ini !</p>";
+                                        } ?>
+                                        <?php foreach ($data_asistent as $asistent){ ?>
+                                            <li><?= $asistent['name'] ?> (<?= $asistent['nim'] ?>)</li>
+                                        <?php } ?>
                                     </ul>
                                     <p><hr></p>								
                                 </div>
@@ -110,18 +120,29 @@
                                 <h3 class="text-center">Asisten Lab</h3>
                                 <div class="br"></div>
                             </aside>
+                            
+                            <?php if(mysqli_num_rows($data_asistent) == 0) {
+                                echo"
+                                <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                                    <span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span>
+                                </div>
+                                ";
+                            } ?>
+                            <?php foreach ($data_asistent as $asistent){ ?>
                             <aside class="single_sidebar_widget author_widget">
-                                <img class="author_img rounded-circle" height="100" width="100" src="../img/asisten/profil.jpg" alt="">
-                                <h4>Charlie Barber</h4>
-                                <p>Senior blog writer</p>
+                                <img class="author_img rounded-circle" height="100" width="100" src="../img/asisten/<?= $asistent['photo']; ?>" alt="">
+                                <h4><?= $asistent['name']; ?></h4>
+                                <p>Asisten Lab. <?= $asistent['position_lab']; ?></p>
                                 <div class="social_icon">
-                                    <a href="../#"><i class="fa fa-facebook"></i></a>
-                                    <a href="../#"><i class="fa fa-twitter"></i></a>
-                                    <a href="../#"><i class="fa fa-github"></i></a>
-                                    <a href="../#"><i class="fa fa-behance"></i></a>
+                                    <a href="https://wa.me/<?= $asistent['telp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a>
+
+                                    <a href="mailto:<?= $asistent['email']; ?>?subject=Pertanyaan&body=Halo%20Asisten,%0A%0A" target="_blank"><i class="fa fa-envelope"></i></a>
+
+                                    <a href="https://www.instagram.com/<?= $asistent['instagram']; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                                 </div>
                                 <div class="br"></div>
                             </aside>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

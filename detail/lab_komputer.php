@@ -74,9 +74,14 @@
                                 <div class="quotes"><hr>
                                     <bold>Asisten :</bold>
                                     <ul>
-                                    <?php foreach ($data_asistent as $asistent){ ?>
-                                        <li><?= $asistent['name'] ?> (<?= $asistent['nim'] ?>)</li>
-                                    <?php } ?>
+                                        <?php if (mysqli_num_rows($data_asistent) > 0) { ?>
+                                        <?php } else {
+                                            echo "
+                                            <p class='text-danger'>Belum ada asiten saat ini !</p>";
+                                        } ?>
+                                        <?php foreach ($data_asistent as $asistent){ ?>
+                                            <li><?= $asistent['name'] ?> (<?= $asistent['nim'] ?>)</li>
+                                        <?php } ?>
                                     </ul>
                                     <p><hr></p>								
                                 </div>
@@ -109,6 +114,13 @@
                                 <h3 class="text-center">Asisten Lab</h3>
                                 <div class="br"></div>
                             </aside>
+                            <?php if(mysqli_num_rows($data_asistent) == 0) {
+                                echo"
+                                <div class='alert alert-danger d-flex align-items-center' role='alert'>
+                                    <span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span>
+                                </div>
+                                ";
+                            } ?>
                             <?php foreach ($data_asistent as $asistent){ ?>
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" height="100" width="100" src="../img/asisten/<?= $asistent['photo']; ?>" alt="">
