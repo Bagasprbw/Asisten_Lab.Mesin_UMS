@@ -25,7 +25,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home</title>
+    <title>Data Asisten</title>
     <?php include "layout/_css.php"; ?>
 </head>
 <body id="page-top">
