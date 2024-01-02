@@ -1,4 +1,8 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('Location: ../login.php');
+    }
     $conn=mysqli_connect('localhost','root','','asisten_lab_tmums');
     if (isset($_POST['position_lab'])) {
         $selected_lab = $_POST['position_lab'];
