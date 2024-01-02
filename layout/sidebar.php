@@ -16,21 +16,6 @@
 								<li class="nav-item"><a class="nav-link" href="history.php">History</a></li> 
 								<li class="nav-item"><a class="nav-link" href="asisten.php">Asisten Lab</a></li>
 								<li class="nav-item"><a class="nav-link" href="reservasi.php">Reservasi</a></li> 
-								<!-- <li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="portfolio.php">Portfolio</a></li>
-										<li class="nav-item"><a class="nav-link" href="elements.php">Elements</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item submenu dropdown">
-									<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-									<ul class="dropdown-menu">
-										<li class="nav-item"><a class="nav-link" href="history.php">History</a></li>
-										<li class="nav-item"><a class="nav-link" href="single-blog.php">Blog Details</a></li>
-									</ul>
-								</li> 
-								<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li> -->
 							</ul>
 						</div> 
 					</div>
