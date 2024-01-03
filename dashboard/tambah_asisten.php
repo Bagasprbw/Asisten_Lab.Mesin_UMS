@@ -43,75 +43,59 @@
                         </div>
                         <div class="card-body">
                             <!-- form cari asisten berdasarkan posisinya -->
-                            <form id="searchForm" action="" method="post">
-                                <div class="form row align-items-center">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="lab_position">Pilih Posisi Laboratorium:</label>
-                                        <select class="form-control" id="position_lab" name="position_lab">
-                                            <option value="" selected>-- Pilih Posisi --</option>
-                                            <option value="Komputer">Komputer</option>
-                                            <option value="Metalurgi">Metalurgi</option>
-                                            <option value="Thermodinamika">Thermodinamika</option>
-                                            <option value="Manufaktur">Manufaktur</option>
-                                            <option value="Perpindahan Kalor">Perpindahan Kalor</option>
-                                            <option value="Mekanika Fluida">Mekanika Fluida</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <a class="btn btn-primary btn-sm" href="data_asisten.php">All...</a>
+                            <h3 class="text-center font-weight-bold mt-3 mb-5">Form Input Asisten Laboratorium Teknik Mesin-UMS</h3>
+                            <form action="model.php" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">NIM</label>
+                                    <input type="text" name="nim" class="form-control" placeholder="Example: D100110111" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nama</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Tanggal Lahir</label>
+                                    <input type="date" name="date_of_birth" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Foto</label>
+                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="photo" class="form-control" required>
+                                    <small id="" class="form-text text-muted">Min. 200X200 px | Max. 512X512 px</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Posisi</label>
+                                    <select name="position_lab" id="recipient-name" class="form-control">
+                                        <option value="Komputer">Lab. Komputer</option>
+                                        <option value="Metalurgi">Lab. Metalurgi</option>
+                                        <option value="Thermodinamika">Lab. Thermodinamika</option>
+                                        <option value="Manufaktur">Lab. Manufaktur / Produksi</option>
+                                        <option value="Perpindahan Kalor">Lab. Perpindahan Kalor</option>
+                                        <option value="Mekanika Fluida">Lab. Mekanika Fluida</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">No Telp / Wa</label>
+                                    <input type="text" name="telp" class="form-control"  placeholder="Enter No telp/Wa" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="validationCustomUsername">Email address</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        </div>
+                                        <input type="email" name="email" class="form-control" id="validationCustomUsername" placeholder="Enter email" aria-describedby="inputGroupPrepend" required>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Instagram</label>
+                                    <input type="text" name="instagram" class="form-control"  placeholder="Enter Instagram account" required>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" name="addAsistent" class="btn btn-primary">Submit</button>
                             </form>
-                            <div class="table-responsive">
-                                <table class="table table-bordered" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>NIM</th>
-                                            <th>Nama</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Foto</th>
-                                            <th>Posisi</th>
-                                            <th>Telp</th>
-                                            <th>Email</th>
-                                            <th>Instagram</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php while ($item = mysqli_fetch_array($getitem)) { ?>
-                                        <?php
-                                            $id_asistent = $item['id_asistent'];
-                                            $nim = $item['nim'];
-                                            $name = $item['name'];
-                                            $date_of_birth = $item['date_of_birth'];
-                                            $position_lab = $item['position_lab'];
-                                            $photo = $item['photo'];
-                                            $telp = $item['telp'];
-                                            $email = $item['email'];
-                                            $instagram = $item['instagram'];
-                                        ?>
-                                        <tr>
-                                            <td><?= $item['nim']; ?></td>
-                                            <td><?= $item['name']; ?></td>
-                                            <td><?= $item['date_of_birth']; ?></td>
-                                            <td><img src="../img/asisten/<?= $item['photo']; ?>" height="60" width="60" alt=""></td>
-                                            <td>Lab. <?= $item['position_lab']; ?></td>
-                                            <td><?= $item['telp']; ?></td>
-                                            <td><?= $item['email']; ?></td>
-                                            <td>@<?= $item['instagram']; ?></td>
-                                            <td> | </td>
-                                        </tr>
-                                        <?php } ?>
-                                        <?php if (mysqli_num_rows($getitem) > 0) { ?>
-                                        <?php } else {
-                                            echo "
-                                            <tr>
-                                                <td class='table-secondary text-center' colspan='9'>No data refund</td>
-                                            </tr>";
-                                        } ?>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
                     <!-- Content -->
