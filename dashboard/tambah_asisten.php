@@ -83,12 +83,12 @@
                                         <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                                         </div>
-                                        <input type="email" name="email" class="form-control" id="validationCustomUsername" placeholder="Enter email" aria-describedby="inputGroupPrepend" required>
+                                        <input type="email" name="email" class="form-control" id="validationCustomUsername" placeholder="Enter email" aria-describedby="inputGroupPrepend">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Instagram</label>
-                                    <input type="text" name="instagram" class="form-control"  placeholder="Enter Instagram account" required>
+                                    <input type="text" name="instagram" class="form-control"  placeholder="Enter Instagram account">
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">

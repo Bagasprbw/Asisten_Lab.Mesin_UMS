@@ -109,7 +109,9 @@
                                             <td><?= $item['telp']; ?></td>
                                             <td><?= $item['email']; ?></td>
                                             <td>@<?= $item['instagram']; ?></td>
-                                            <td> | </td>
+                                            <td>
+                                                <a class="btn btn-danger btn-sm" href="model.php?hapus=<?= $item['id_asistent'] ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+                                            </td>
                                         </tr>
                                         <?php } ?>
                                         <?php if (mysqli_num_rows($getitem) > 0) { ?>

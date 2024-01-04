@@ -49,4 +49,25 @@ if(isset($_POST['addAsistent'])) {
         echo "<script>alert('Gagal menambahkan data baru');</script>";
     }
 }
+
+if (isset($_GET['hapus'])) {
+    $id_asisten = $_GET['hapus'];
+    // Ambil nama file gambar dari database sebelum menghapus
+    $query_select_gambar = "SELECT photo FROM asistent WHERE id_asistent = '$id_asisten'";
+    $hasil_select_gambar = mysqli_query($conn, $query_select_gambar);
+    $data_select_gambar = mysqli_fetch_assoc($hasil_select_gambar);
+    $hapus_gambar = $data_select_gambar['photo'];
+    // Hapus file gambar dari folder
+    $path_to_gambar = "../img/asisten/" . $hapus_gambar;
+    if (file_exists($path_to_gambar)) {
+        unlink($path_to_gambar); // Hapus file gambar
+    }
+    // Lanjutkan dengan penghapusan data dari database
+    $query_hapus_asisten = "DELETE FROM asistent WHERE id_asistent = '$id_asisten' ";
+    if (mysqli_query($conn, $query_hapus_asisten)) {
+        echo "<script>window.location.href = document.referrer;</script>";
+    } else {
+        echo "<script>alert('Gagal menghapus');</script>";
+    }
+}
 ?>
