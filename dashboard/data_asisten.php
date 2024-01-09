@@ -10,9 +10,7 @@
     } else {
         $result = 1;
     }
-    $query = "SELECT * FROM asistent
-    WHERE $result
-    ORDER BY name DESC";
+    $query = "SELECT * FROM asistent WHERE $result ORDER BY name DESC";
     $getitem = mysqli_query($conn, $query);
 ?>
 
@@ -52,6 +50,15 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Asisten Laboratorium</h6>
                         </div>
                         <div class="card-body">
+                            <?php if (isset($_SESSION['flash_message'])) : ?>
+                                <div id="flash-message-del" class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Sukses</strong> <?= $_SESSION['flash_message'] ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <?php unset($_SESSION['flash_message']); ?>
+                            <?php endif; ?>
                             <!-- form cari asisten berdasarkan posisinya -->
                             <form id="searchForm" action="" method="post">
                                 <div class="form row align-items-center">
@@ -110,7 +117,9 @@
                                             <td><?= $item['email']; ?></td>
                                             <td>@<?= $item['instagram']; ?></td>
                                             <td>
-                                                <a class="btn btn-danger btn-sm" href="model.php?hapus=<?= $item['id_asistent'] ?>"><i class="fas fa-fw fa-trash-alt"></i></a>
+                                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $item['id_asistent'] ?>)">
+                                                    <i class="fas fa-fw fa-trash-alt"></i>
+                                                </button>
                                             </td>
                                         </tr>
                                         <?php } ?>
@@ -154,6 +163,24 @@
         // Otomatis mengirim formulir saat memilih posisi laboratorium
         document.getElementById('searchForm').submit();
     });
+</script>
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: 'Anda tidak akan dapat mengembalikannya!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Jika pengguna mengonfirmasi, arahkan ke skrip hapus dengan parameter ID
+                window.location.href = 'model.php?hapus=' + id;
+            }
+        });
+    }
 </script>
 </body>
 </html>

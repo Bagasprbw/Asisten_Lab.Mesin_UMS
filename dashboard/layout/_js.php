@@ -17,5 +17,15 @@
     <!-- Page level custom scripts -->
     <script src="assets/js/demo/datatables-demo.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script>
+    setTimeout(function() {
+            document.getElementById('flash-message-del').style.display = 'none';
+        }, 2000);
+</script>
 
     

@@ -65,8 +65,12 @@ if (isset($_GET['hapus'])) {
     // Lanjutkan dengan penghapusan data dari database
     $query_hapus_asisten = "DELETE FROM asistent WHERE id_asistent = '$id_asisten' ";
     if (mysqli_query($conn, $query_hapus_asisten)) {
+        // Flash message sukses
+        $_SESSION['flash_message'] = "Data berhasil dihapus.";
         echo "<script>window.location.href = document.referrer;</script>";
     } else {
+        // Flash message gagal
+        $_SESSION['flash_message'] = "Gagal menghapus data.";
         echo "<script>alert('Gagal menghapus');</script>";
     }
 }
