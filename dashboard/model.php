@@ -57,29 +57,38 @@ if (isset($_GET['hapus'])) {
     $hasil_select_gambar = mysqli_query($conn, $query_select_gambar);
     $data_select_gambar = mysqli_fetch_assoc($hasil_select_gambar);
     $hapus_gambar = $data_select_gambar['photo'];
-    // Periksa apakah gambar tidak digunakan oleh data lain
-    $query_gambar_terpakai = "SELECT COUNT(*) as count FROM asistent WHERE photo = '$hapus_gambar'";
-    $hasil_gambar_terpakai = mysqli_query($conn, $query_gambar_terpakai);
-    $data_gambar_terpakai = mysqli_fetch_assoc($hasil_gambar_terpakai);
-    $jumlah_gambar_terpakai = $data_gambar_terpakai['count'];
-    if ($jumlah_gambar_terpakai == 1) {
-        // Hapus file gambar dari folder jika tidak digunakan oleh data lain
+
+    // jika gambar tidak kosng
+    if (!empty($hapus_gambar)) {
+        // Hapus file gambar dari folder
         $path_to_gambar = "../img/asisten/" . $hapus_gambar;
         if (file_exists($path_to_gambar)) {
             unlink($path_to_gambar); // Hapus file gambar
         }
-    }
-    // Hapus data dari database
-    $query_hapus_asisten = "DELETE FROM asistent WHERE id_asistent = '$id_asisten'";
-    if (mysqli_query($conn, $query_hapus_asisten)) {
-        // Flash message sukses
-        $_SESSION['flash_message'] = "Data berhasil dihapus.";
-        echo "<script>window.location.href = document.referrer;</script>";
+        // Lanjutkan dengan penghapusan data dari database
+        $query_hapus_asisten = "DELETE FROM asistent WHERE id_asistent = '$id_asisten' ";
+        if (mysqli_query($conn, $query_hapus_asisten)) {
+            // Flash message sukses
+            $_SESSION['flash_message'] = "Data berhasil dihapus.";
+            echo "<script>window.location.href = document.referrer;</script>";
+        } else {
+            // Flash message gagal
+            $_SESSION['flash_message'] = "Gagal menghapus data.";
+            echo "<script>alert('Gagal menghapus');</script>";
+        }
+    // Jika foto kosong atau NULL, lanjutkan dengan penghapusan data dari database saja
     } else {
-        // Flash message gagal
-        $_SESSION['flash_message'] = "Gagal menghapus data.";
-        echo "<script>alert('Gagal menghapus');</script>";
+        $query_hapus_asisten = "DELETE FROM asistent WHERE id_asistent = '$id_asisten' ";
+        if (mysqli_query($conn, $query_hapus_asisten)) {
+            // Flash message sukses
+            $_SESSION['flash_message'] = "Data berhasil dihapus.";
+            echo "<script>window.location.href = document.referrer;</script>";
+        } else {
+            // Flash message gagal
+            $_SESSION['flash_message'] = "Gagal menghapus data.";
+            echo "<script>alert('Gagal menghapus');</script>";
+        }
     }
 }
-  
+
 ?>
