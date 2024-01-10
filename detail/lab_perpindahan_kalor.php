@@ -121,7 +121,10 @@
                             } ?>
                             <?php foreach ($data_asistent as $asistent){ ?>
                             <aside class="single_sidebar_widget author_widget">
-                                <img class="author_img rounded-circle" height="100" width="100" src="../img/asisten/<?= $asistent['photo']; ?>" alt="">
+                                <?php
+                                    $photoPath = (!empty($asistent['photo'])) ? "../img/asisten/" . $asistent['photo'] : "../img/asisten/default_pfp.png";
+                                ?>
+                                <img class="author_img rounded-circle" src="<?= $photoPath; ?>" height="100" width="100" alt="">
                                 <h4><?= $asistent['name']; ?></h4>
                                 <p>Asisten Lab. <?= $asistent['position_lab']; ?></p>
                                 <div class="social_icon">

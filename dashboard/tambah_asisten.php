@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Foto</label>
-                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="photo" class="form-control" required>
+                                    <input type="file" accept="image/png, image/gif, image/jpeg" name="photo" class="form-control">
                                     <small id="" class="form-text text-muted">Min. 200X200 px | Max. 512X512 px</small>
                                 </div>
                                 <div class="form-group">

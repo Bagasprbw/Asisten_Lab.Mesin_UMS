@@ -57,7 +57,10 @@
                     <?php foreach ($data_asistent as $asistent){ ?>
                     <div class="row mb-5">
                         <div class="col-lg-4 pl-5">
-                            <img class="" src="img/asisten/<?= $asistent['photo']; ?>" height="300" width="290" alt="">
+                            <?php
+                            $photoPath = (!empty($asistent['photo'])) ? "img/asisten/" . $asistent['photo'] : "img/asisten/default_pfp.png";
+                            ?>
+                            <img src="<?= $photoPath; ?>" height="300" width="290" alt="">
                         </div>
                         <div class="col-lg-8">
                             <div class="personal_text">

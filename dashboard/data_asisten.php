@@ -111,15 +111,89 @@
                                             <td><?= $item['nim']; ?></td>
                                             <td><?= $item['name']; ?></td>
                                             <td><?= $item['date_of_birth']; ?></td>
-                                            <td><img src="../img/asisten/<?= $item['photo']; ?>" height="60" width="60" alt=""></td>
+                                            <td>
+                                                <?php
+                                                $photoPath = (!empty($item['photo'])) ? "../img/asisten/" . $item['photo'] : "../img/asisten/default_pfp.png";
+                                                ?>
+                                                <img src="<?= $photoPath; ?>" height="60" width="60" alt="">
+                                            </td>
+
                                             <td>Lab. <?= $item['position_lab']; ?></td>
                                             <td><?= $item['telp']; ?></td>
                                             <td><?= $item['email']; ?></td>
                                             <td>@<?= $item['instagram']; ?></td>
                                             <td>
-                                                <button class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $item['id_asistent'] ?>)">
-                                                    <i class="fas fa-fw fa-trash-alt"></i>
-                                                </button>
+                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                    <!-- hapus -->
+                                                    <button type="button" onclick="confirmDelete(<?= $item['id_asistent'] ?>)" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-fw fa-trash-alt"></i> Delete
+                                                    </button>
+                                                    <!-- edit -->
+                                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#chg<?= $item['id_asistent']; ?>">
+                                                        <i class="fas fa-fw fa-pencil-alt"></i> Change
+                                                    </button>
+                                                </div>
+                                                <!-- modal edit -->
+                                                <div class="modal fade" id="chg<?= $item['id_asistent']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="model.php" method="post" enctype="multipart/form-data">
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">NIM:</label>
+                                                                <input type="hidden" name="id_asistent" value="<?= $item['id_asistent'] ?>">
+                                                                <input type="text" name="nim" value="<?= $item['nim']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Name:</label>
+                                                                <input type="text" name="name" value="<?= $item['name']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Photo:</label>
+                                                                <input type="file" accept="image/png, image/gif, image/jpeg" name="photo" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Lab Position:</label>
+                                                                <select name="position_lab" class="form-control" aria-label="Default select example">
+                                                                    <option value="Komputer" <?php if ($item['position_lab'] === 'makanan') echo 'selected'; ?>>Komputer</option>
+                                                                    <option value="Metalurgi" <?php if ($item['position_lab'] === 'Metalurgi') echo 'selected'; ?>>Metalurgi</option>
+                                                                    <option value="Thermodinamika" <?php if ($item['position_lab'] === 'Thermodinamika') echo 'selected'; ?>>Thermodinamika</option>
+                                                                    <option value="Manufaktur" <?php if ($item['position_lab'] === 'Manufaktur') echo 'selected'; ?>>Manufaktur</option>
+                                                                    <option value="Perpindahan Kalor" <?php if ($item['position_lab'] === 'Perpindahan Kalor') echo 'selected'; ?>>Perpindahan Kalor</option>
+                                                                    <option value="Mekanika Fluida" <?php if ($item['position_lab'] === 'Mekanika Fluida') echo 'selected'; ?>>Mekanika Fluida</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Date of Birth:</label>
+                                                                <input type="date" name="date_of_birth" value="<?= $item['date_of_birth']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Telp/WA:</label>
+                                                                <input type="text" name="telp" value="<?= $item['telp']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Instagram:</label>
+                                                                <input type="text" name="instagram" value="<?= $item['instagram']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Emai:</label>
+                                                                <input type="email" name="email" value="<?= $item['email']; ?>" class="form-control" id="recipient-name">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" name="edit_asisten"  class="btn btn-primary">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                </div>
                                             </td>
                                         </tr>
                                         <?php } ?>
