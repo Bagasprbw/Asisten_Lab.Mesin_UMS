@@ -20,6 +20,7 @@
         <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
         <link rel="stylesheet" href="vendors/animate-css/animate.css">
         <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+        <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
@@ -54,33 +55,33 @@
            	<div class="container">
            		<div class="profile_inner p_120">
                     <?php foreach ($data_asistent as $asistent){ ?>
-					<div class="row mb-5">
-						<div class="col-lg-4 pl-5">
-							<img class="" src="img/asisten/<?= $asistent['photo']; ?>" height="300" width="290" alt="">
-						</div>
-						<div class="col-lg-8">
-							<div class="personal_text">
-								<h3><?= $asistent['name']; ?> <span>(<?= $asistent['nim']; ?>)</span></h3>
-								<h4>Asisten Laboratorium <?= $asistent['position_lab']; ?></h4>
-								<ul class="list basic_info">
-									<li><a href="#"><i class="fa fa-calendar"></i> <?= $asistent['date_of_birth']; ?></a></li>
+                    <div class="row mb-5">
+                        <div class="col-lg-4 pl-5">
+                            <img class="" src="img/asisten/<?= $asistent['photo']; ?>" height="300" width="290" alt="">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="personal_text">
+                                <h2><?= $asistent['name']; ?> <span>(<?= $asistent['nim']; ?>)</span></h2>
+                                <h4>Asisten Lab. <?= $asistent['position_lab']; ?></h4>
+                                <ul class="list basic_info">
+                                    <li><a href="#"><i class="fa fa-calendar"></i> <?= $asistent['date_of_birth']; ?></a></li>
 
-									<li><a href="https://wa.me/<?= $asistent['telp']; ?>" target="_blank"><i class="fa fa-phone"></i> <?= $asistent['telp']; ?></a></li>
+                                    <li><a href="https://wa.me/<?= $asistent['telp']; ?>" target="_blank"><i class="fa fa-phone"></i> <?= $asistent['telp']; ?></a></li>
 
-									<li><a href="mailto:<?= $asistent['email']; ?>?subject=Pertanyaan&body=Halo%20Asisten,%0A%0A" target="_blank"><i class="fa fa-envelope"></i> <?= $asistent['email']; ?></a></li>
+                                    <li><a href="mailto:<?= $asistent['email']; ?>?subject=Pertanyaan&body=Halo%20Asisten,%0A%0A" target="_blank"><i class="fa fa-envelope"></i> <?= $asistent['email']; ?></a></li>
 
-									<li><a href="https://www.instagram.com/<?= $asistent['instagram']; ?>/" target="_blank"><i class="fa fa-instagram"></i> @<?= $asistent['instagram']; ?></a></li>
-								</ul>
-								<ul class="list personal_social">
-									<li><a href="https://www.instagram.com/<?= $asistent['instagram']; ?>/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="https://www.instagram.com/<?= $asistent['instagram']; ?>/" target="_blank"><i class="fa fa-instagram"></i> @<?= $asistent['instagram']; ?></a></li>
+                                </ul>
+                                <ul class="list personal_social">
+                                    <li><a href="https://www.instagram.com/<?= $asistent['instagram']; ?>/" target="_blank"><i class="fa fa-instagram"></i></a></li>
 
-									<li><a href="https://wa.me/<?= $asistent['telp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                                    <li><a href="https://wa.me/<?= $asistent['telp']; ?>" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
 
-									<li><a href="mailto:<?= $asistent['email']; ?>?subject=Pertanyaan&body=Halo%20Asisten,%0A%0A" target="_blank"><i class="fa fa-envelope"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div><br><hr><br>
+                                    <li><a href="mailto:<?= $asistent['email']; ?>?subject=Pertanyaan&body=Halo%20Asisten,%0A%0A" target="_blank"><i class="fa fa-envelope"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><hr><br>
                     <?php }?>
            		</div>
             </div>
@@ -91,11 +92,6 @@
         <?php include "layout/footer.php" ?>
         <!--================End Footer Area =================-->
         
-        
-        
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.js"></script>
         <script src="js/bootstrap.min.js"></script>
