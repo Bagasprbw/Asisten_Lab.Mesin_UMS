@@ -50,14 +50,23 @@
                             <h6 class="m-0 font-weight-bold text-primary">Data Asisten Laboratorium</h6>
                         </div>
                         <div class="card-body">
-                            <?php if (isset($_SESSION['flash_message'])) : ?>
-                                <div id="flash-message-del" class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Sukses</strong> <?= $_SESSION['flash_message'] ?>
+                            <?php if (isset($_SESSION['flash_message_delete'])) : ?>
+                                <div id="flash-message" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Sukses</strong> <?= $_SESSION['flash_message_delete'] ?>
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <?php unset($_SESSION['flash_message']); ?>
+                                <?php unset($_SESSION['flash_message_delete']); ?>
+                            <?php endif; ?>
+                            <?php if (isset($_SESSION['flash_message_update'])) : ?>
+                                <div id="flash-message" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Sukses</strong> <?= $_SESSION['flash_message_update'] ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <?php unset($_SESSION['flash_message_update']); ?>
                             <?php endif; ?>
                             <!-- form cari asisten berdasarkan posisinya -->
                             <form id="searchForm" action="" method="post">
