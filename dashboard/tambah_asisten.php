@@ -80,15 +80,17 @@
                                 <div class="form-group">
                                     <label for="validationCustomUsername">Email address</label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                        </div>
                                         <input type="email" name="email" class="form-control" id="validationCustomUsername" placeholder="Enter email" aria-describedby="inputGroupPrepend">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Instagram</label>
-                                    <input type="text" name="instagram" class="form-control"  placeholder="Enter Instagram account">
+                                    <label for="validationCustomUsername">Instagram</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                        </div>
+                                        <input type="text" name="instagram" class="form-control" id="validation_input_ig" placeholder="Example: Exm_xyz" aria-describedby="inputGroupPrepend">
+                                    </div>
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1">

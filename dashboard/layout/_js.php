@@ -24,8 +24,24 @@
 
 <script>
     setTimeout(function() {
-            document.getElementById('flash-message-del').style.display = 'none';
+            document.getElementById('flash-message').style.display = 'none';
         }, 2000);
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Temukan elemen input Instagram
+        var instagramInput = document.getElementById('validation_input_ig');
+
+        // Tambahkan event listener untuk memantau setiap kali pengguna mengetik
+        instagramInput.addEventListener('input', function() {
+            // Periksa apakah input mengandung karakter '@'
+            if (instagramInput.value.includes('@')) {
+                // Jika ya, hapus karakter '@'
+                instagramInput.value = instagramInput.value.replace('@', '');
+            }
+        });
+    });
+</script>
+
 
     
