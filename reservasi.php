@@ -85,7 +85,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
@@ -117,7 +117,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
@@ -149,7 +149,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
@@ -183,7 +183,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
@@ -215,7 +215,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
@@ -247,7 +247,7 @@
                                         <?php if (mysqli_num_rows($get_contact_asstn) > 0) { ?>
                                         <?php } else {
                                             echo "
-                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten saat ini.</span></h4><br>";
+                                            <br><h4><span class='fa fa-info-circle text-danger'> Maaf belum ada asisten yang dapat dihubungi saat ini.</span></h4><br>";
                                         } ?>
                                     </center>
                                 </div>
